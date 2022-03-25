@@ -3,8 +3,17 @@ import 'dart:math';
 const _numbers = "0123456789ABCDEF";
 
 String convert(n, base1, base2) {
-  n = base2dec(n, base1);
-  n = dec2base(n, base2);
+  var _convertedBase1 = getbase(base1);
+  var _convertedBase2 = getbase(base2);
+  if (_convertedBase1 == -1 || _convertedBase2 == -1) {
+    n = "Invalid base!!";
+  } else if (base1 == base2) {
+    n = n;
+  } else {
+    n = n.toUpperCase();
+    n = base2dec(n, _convertedBase1);
+    n = dec2base(n, _convertedBase2);
+  }
   return n;
 }
 
@@ -28,22 +37,26 @@ int base2dec(n, base) {
 }
 
 int getbase(base) {
-  int _base_code = 10;
   switch (base.toLowerCase()) {
     case "decimal":
-      _base_code = 10;
-      break;
+    case "dec":
+    case "10":
+      return 10;
     case "binary":
-      _base_code = 2;
-      break;
+    case "bin":
+    case "2":
+      return 2;
     case "octal":
-      _base_code = 8;
-      break;
+    case "oct":
+    case "8":
+      return 8;
     case "hexadecimal":
-      _base_code = 16;
-      break;
+    case "hex":
+    case "16":
+      return 16;
+    default:
+      return -1;
   }
-  return _base_code;
 }
 
 void main() {
