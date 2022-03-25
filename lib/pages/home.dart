@@ -24,16 +24,19 @@ class _HomePageState extends State<HomePage> {
           children: [
             Wrap(
               spacing: 15,
-              //alignment: WrapAlignment.center,
-              alignment: WrapAlignment.spaceEvenly,
+              alignment: WrapAlignment.center,
               children: [
                 SizedBox(
-                  width: 200,
+                  width: 250,
                   child: TextField(
                     onChanged: (value) {
                       setState(() {
                         _invalue = value;
                       });
+                    },
+                    onSubmitted: (trash) {
+                      _result = (convert(_invalue, _base1, _base2));
+                      setState(() {});
                     },
                     textAlign: TextAlign.center,
                     decoration: const InputDecoration(
@@ -62,9 +65,9 @@ class _HomePageState extends State<HomePage> {
                         },
                       ),
                       Container(
-                          color: Color.fromARGB(100, 100, 0, 0),
                           padding: const EdgeInsets.all(10),
-                          child: Text("to", style: TextStyle(fontSize: 20))),
+                          child:
+                              const Text("to", style: TextStyle(fontSize: 20))),
                       DropdownButton(
                         value: _base2,
                         items: ["Decimal", "Binary", "Octal", "Hexadecimal"]

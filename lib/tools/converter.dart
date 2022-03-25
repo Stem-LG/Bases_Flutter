@@ -7,6 +7,12 @@ String convert(n, base1, base2) {
   var _convertedBase2 = getbase(base2);
   if (_convertedBase1 == -1 || _convertedBase2 == -1) {
     n = "Invalid base!!";
+  } else if ((base1 == "Decimal" && RegExp(r'^[0-9]+$').hasMatch(n) == false) ||
+      (base1 == "Binary" && RegExp(r'^[0-1]+$').hasMatch(n) == false) ||
+      (base1 == "Octal" && RegExp(r'^[0-7]+$').hasMatch(n) == false) ||
+      (base1 == "Hexadecimal" &&
+          RegExp(r'^[0-9A-Fa-f]+$').hasMatch(n) == false)) {
+    n = "Invalid input!!";
   } else if (base1 == base2) {
     n = n;
   } else {
