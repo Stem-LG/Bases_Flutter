@@ -42,41 +42,46 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                DropdownButton(
-                  value: _base1,
-                  items: ["Decimal", "Binary", "Octal", "Hexadecimal"]
-                      .map((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (String? newvalue) {
-                    setState(() {
-                      _base1 = newvalue!;
-                    });
-                  },
-                ),
-                Align(
-                  child: Text(
-                    "to",
-                    style: TextStyle(fontSize: 20),
+                Container(
+                  margin: const EdgeInsets.only(top: 10),
+                  child: Wrap(
+                    children: [
+                      DropdownButton(
+                        value: _base1,
+                        items: ["Decimal", "Binary", "Octal", "Hexadecimal"]
+                            .map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (String? newvalue) {
+                          setState(() {
+                            _base1 = newvalue!;
+                          });
+                        },
+                      ),
+                      Container(
+                          color: Color.fromARGB(100, 100, 0, 0),
+                          padding: const EdgeInsets.all(10),
+                          child: Text("to", style: TextStyle(fontSize: 20))),
+                      DropdownButton(
+                        value: _base2,
+                        items: ["Decimal", "Binary", "Octal", "Hexadecimal"]
+                            .map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (String? newvalue) {
+                          setState(() {
+                            _base2 = newvalue!;
+                          });
+                        },
+                      ),
+                    ],
                   ),
-                ),
-                DropdownButton(
-                  value: _base2,
-                  items: ["Decimal", "Binary", "Octal", "Hexadecimal"]
-                      .map((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (String? newvalue) {
-                    setState(() {
-                      _base2 = newvalue!;
-                    });
-                  },
                 ),
               ],
             ),
