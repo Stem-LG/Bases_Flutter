@@ -21,8 +21,15 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: Colors.indigo,
       ),
-      home: const Scaffold(
-        body: HomePage(),
+      home: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Expanded(child: HomePage()),
+            Text('Made with Dart & Flutter\nby Stem-LG',
+                textAlign: TextAlign.center, style: TextStyle(fontSize: 16)),
+          ],
+        ),
       ),
     );
   }
