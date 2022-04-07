@@ -51,8 +51,13 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       DropdownButton(
                         value: _base1,
-                        items: ["Decimal", "Binary", "Octal", "Hexadecimal"]
-                            .map((String value) {
+                        items: [
+                          "Decimal",
+                          "Binary",
+                          "Octal",
+                          "Hexadecimal",
+                          "Roman"
+                        ].map((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -70,8 +75,13 @@ class _HomePageState extends State<HomePage> {
                               const Text("to", style: TextStyle(fontSize: 20))),
                       DropdownButton(
                         value: _base2,
-                        items: ["Decimal", "Binary", "Octal", "Hexadecimal"]
-                            .map((String value) {
+                        items: [
+                          "Decimal",
+                          "Binary",
+                          "Octal",
+                          "Hexadecimal",
+                          "Roman"
+                        ].map((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),

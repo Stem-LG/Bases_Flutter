@@ -14,6 +14,6 @@ future additions:
 "other":
 -input control
 -more bases support ("maybe custom bases with custom characters too")
--Roman numbers support
+-Roman numerals support
 
 Built using Dart & Flutter :)
