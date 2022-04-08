@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../tools/converter.dart';
+import 'package:b/b.dart' as b;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,10 +10,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var _invalue = "";
-  var _base1 = "Decimal";
-  var _base2 = "Binary";
+  var _userInput = "";
+  var _base1 = b.base10;
+  var _base2 = b.base2;
   var _result = "";
+  final items = ["Decimal", "Binary", "Octal", "Hexadecimal"];
+  final values = [b.base10, b.base2, b.base8, b.base16];
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +34,11 @@ class _HomePageState extends State<HomePage> {
                   child: TextField(
                     onChanged: (value) {
                       setState(() {
-                        _invalue = value;
+                        _userInput = value;
                       });
                     },
-                    onSubmitted: (trash) {
-                      _result = (convert(_invalue, _base1, _base2));
+                    onSubmitted: (_) {
+                      _result = (convert(_userInput, _base1, _base2));
                       setState(() {});
                     },
                     textAlign: TextAlign.center,
@@ -51,15 +54,9 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       DropdownButton(
                         value: _base1,
-                        items: [
-                          "Decimal",
-                          "Binary",
-                          "Octal",
-                          "Hexadecimal",
-                          "Roman"
-                        ].map((String value) {
+                        items: items.map((String value) {
                           return DropdownMenuItem<String>(
-                            value: value,
+                            value: values[items.indexOf(value)],
                             child: Text(value),
                           );
                         }).toList(),
@@ -75,15 +72,9 @@ class _HomePageState extends State<HomePage> {
                               const Text("to", style: TextStyle(fontSize: 20))),
                       DropdownButton(
                         value: _base2,
-                        items: [
-                          "Decimal",
-                          "Binary",
-                          "Octal",
-                          "Hexadecimal",
-                          "Roman"
-                        ].map((String value) {
+                        items: items.map((String value) {
                           return DropdownMenuItem<String>(
-                            value: value,
+                            value: values[items.indexOf(value)],
                             child: Text(value),
                           );
                         }).toList(),
@@ -105,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                 height: 40,
                 child: ElevatedButton(
                   onPressed: () {
-                    _result = (convert(_invalue, _base1, _base2));
+                    _result = (convert(_userInput, _base1, _base2));
                     setState(() {});
                   },
                   child: Row(
