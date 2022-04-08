@@ -4,11 +4,8 @@ import 'package:window_manager/window_manager.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  windowManager.ensureInitialized();
-  windowManager.unmaximize();
-  windowManager.setSize(const Size(800, 300));
-  windowManager.show();
   runApp(const MyApp());
+  windowManager.setSize(const Size(800, 300));
 }
 
 class MyApp extends StatelessWidget {

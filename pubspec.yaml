@@ -1,7 +1,7 @@
 name: bases
 description: A flutter app that converts between numerical bases.
 
-publish_to: "Idk tbh"
+publish_to: "none"
 version: 1.0.6
 
 environment:
@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
   b: ^0.1.1+1
   window_manager: ^0.2.0
+  numerus: ^2.0.0
 
 dev_dependencies:
   flutter_test:

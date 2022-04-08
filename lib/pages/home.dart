@@ -14,8 +14,8 @@ class _HomePageState extends State<HomePage> {
   var _base1 = b.base10;
   var _base2 = b.base2;
   var _result = "";
-  final items = ["Decimal", "Binary", "Octal", "Hexadecimal"];
-  final values = [b.base10, b.base2, b.base8, b.base16];
+  final items = ["Decimal", "Binary", "Octal", "Hexadecimal", "Roman"];
+  final values = [b.base10, b.base2, b.base8, b.base16, "roman"];
 
   @override
   Widget build(BuildContext context) {
